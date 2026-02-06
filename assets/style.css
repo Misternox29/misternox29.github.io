@@ -1,0 +1,337 @@
+:root{
+  /* Base */
+  --bg:#0b0a08;
+  --panel:#0f0d0a;
+  --panel2:#13100c;
+  --border:#2b241b;
+
+  /* Identité */
+  --gold:#c9a24d;
+  --gold2:#e0c27a;
+  --text:#f2efe7;
+  --muted:#c9c2b3;
+
+  /* Parchemin */
+  --paper:#E4C79F;
+  --paper2:#E4C79F;
+  --ink:#2a1f16;
+
+  /* FX */
+  --shadow: 0 12px 38px rgba(0,0,0,.45);
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+
+body{
+  font-family:'Montserrat', sans-serif;
+  color: var(--text);
+  line-height: 1.8;
+  font-size: 19px; /* ✅ un peu plus grand */
+
+  background:
+    radial-gradient(1200px 600px at 20% 0%, rgba(201,162,77,.08), transparent 60%),
+    radial-gradient(900px 500px at 90% 10%, rgba(201,162,77,.05), transparent 55%),
+    var(--bg);
+}
+
+a{color:inherit;text-decoration:none}
+a:hover{color:var(--gold)}
+.muted{color:var(--muted)}
+
+/* ===== Layout ===== */
+.app{
+  display:grid;
+  grid-template-columns: 300px 1fr;
+  min-height: 100vh;
+}
+
+/* ===== Sidebar ===== */
+.sidebar{
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  overflow:auto;
+  padding: 16px;
+
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.03), transparent 45%),
+    var(--panel);
+
+  border-right: 1px solid rgba(201,162,77,.18);
+}
+
+.brand{
+  font-family: Cinzel, serif;
+  font-size: 1.2rem;
+  color: var(--gold);
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+  letter-spacing: .5px;
+  text-transform: uppercase;
+}
+
+.nav-items{ padding-left: 10px; }
+
+/* ===== Boutons sections ===== */
+.nav-section > button{
+  width:100%;
+  background:none;
+  border:none;
+  cursor:pointer;
+  text-align:left;
+
+  font-family: 'IM Fell English', serif;
+  font-size: 16px;         /* ✅ section */
+  font-weight: 800;
+  letter-spacing: .4px;
+  color: var(--gold2);
+
+  padding: 12px 10px;
+  border-radius: 12px;
+
+  transition: background .15s ease, color .15s ease, transform .15s ease;
+  position: relative;
+  padding-right: 26px; /* place pour la flèche */
+}
+
+.nav-section > button:hover{
+  background: rgba(201,162,77,.08);
+  transform: translateX(2px);
+  color: var(--gold);
+}
+
+/* ===== Flèche ===== */
+.nav-section > button::after{
+  content: "▸";
+  position: absolute;
+  right: 8px;
+  opacity: .75;
+  transition: transform .2s ease, opacity .2s ease;
+}
+
+.nav-section.open > button::after{
+  transform: rotate(90deg);
+  opacity: 1;
+}
+
+/* ===== Sous-sections (boutons imbriqués) ===== */
+.nav-section .nav-section > button{
+  font-size: 14px;      /* ✅ sous-section */
+  font-weight: 700;
+  color: var(--text);
+  opacity: .95;
+  padding-left: 18px;
+}
+
+/* ===== Liens ===== */
+.nav-link{
+  display:block;
+  margin: 3px 0;
+  padding: 7px 10px;
+  color: var(--muted);
+
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+
+  border: 1px solid transparent;
+  border-radius: 10px;
+
+  transition: background .15s ease, border-color .15s ease, transform .15s ease;
+}
+
+.nav-section .nav-link{
+  padding-left: 18px; /* retrait pour sous-menus */
+  font-size: 13.5px;
+}
+
+.nav-link:hover{
+  color: var(--text);
+  background: rgba(255,255,255,.04);
+  border-color: rgba(255,255,255,.07);
+  transform: translateX(2px);
+}
+
+.nav-link.active{
+  color: var(--text);
+  background: rgba(201,162,77,.12);
+  border-color: rgba(201,162,77,.28);
+}
+
+.nav-section{ margin-bottom: 6px; }
+
+/* ===== Main ===== */
+.main{ padding: 20px; }
+
+/* ===== Hero (bannière) ===== */
+.hero{
+  width: 100%;
+  height: 520px;
+  background: url("../images/ouestworld.png") center / cover no-repeat;
+
+  border-bottom: 3px solid var(--gold);
+  border-radius: 12px;
+  margin-bottom: 20px;
+  box-shadow: var(--shadow);
+}
+
+.hero2{ width:100%; height:520px; background-image:url("../images/ouestworldn.png"); background-size:cover;
+   background-position:center; 
+   border-bottom:3px solid var(--gold); 
+   border-radius:12px;
+   margin-bottom:20px; 
+   box-shadow: var(--shadow); 
+  } 
+
+.hero3{ width:100%; height:520px; background-image:url("../images/ouestworldm.png"); background-size:cover;
+     background-position:center; 
+     border-bottom:3px solid var(--gold);
+      border-radius:12px; margin-bottom:20px;
+       box-shadow: var(--shadow);
+     } 
+
+.hero4{ width:100%; height:520px; background-image:url("../images/ouestworldb.png"); background-size:cover;
+      background-position:center; 
+      border-bottom:3px solid var(--gold);
+       border-radius:12px; margin-bottom:20px;
+        box-shadow: var(--shadow); 
+      }
+
+
+/* ===== Titres ===== */
+h1,h2,h3{
+  font-family: 'IM Fell English', serif;
+}
+
+/* ===== Cartes Parchemin ===== */
+.card{
+  margin-bottom: 28px;
+  padding: 22px; /* ✅ un poil plus de respiration */
+  border-radius: 12px;
+
+  background:
+    radial-gradient(900px 420px at 15% 10%, rgba(255,255,255,.35), transparent 55%),
+    radial-gradient(700px 360px at 85% 15%, rgba(0,0,0,.08), transparent 58%),
+    linear-gradient(180deg, var(--paper), var(--paper2));
+
+  color: var(--ink);
+  border: 1px solid rgba(43,36,27,.55);
+  border-left: 6px solid rgba(201,162,77,.75);
+  box-shadow: 0 14px 30px rgba(0,0,0,.35);
+  position: relative;
+  overflow: hidden;
+}
+
+.card::before{
+  content:"";
+  position:absolute;
+  inset:-20px;
+  background:
+    radial-gradient(180px 110px at 8% 10%, rgba(90,55,25,.18), transparent 70%),
+    radial-gradient(160px 100px at 92% 12%, rgba(90,55,25,.16), transparent 72%),
+    radial-gradient(220px 140px at 10% 92%, rgba(90,55,25,.14), transparent 74%),
+    radial-gradient(240px 150px at 95% 94%, rgba(90,55,25,.16), transparent 76%);
+  pointer-events:none;
+  opacity: .9;
+}
+
+.card .muted{
+  color: rgba(42,31,22,.78);
+}
+
+/* ✅ Titres lisibles + cohérents */
+.card h2{
+  color: rgba(42,31,22,.92);
+  border-bottom: 2px dashed rgba(42,31,22,.3);
+  padding-bottom: 8px;
+  margin-bottom: 12px;
+}
+
+/* ✅ Texte plus lisible (moins “gras agressif”) */
+.card p{
+  font-weight: 600; 
+  font-size: 1.02em;
+}
+
+/* Listes */
+.card ul{
+  margin-left: 20px;
+  line-height: 1.65;
+}
+
+/* Séparateurs */
+.card hr{
+  border:none;
+  border-top: 1px dashed rgba(43,36,27,.35);
+  margin: 14px 0;
+}
+
+/* ===== Bouton ===== */
+.support-btn{
+  display:inline-block;
+  padding: 12px 18px;
+  border-radius: 12px;
+
+  background:
+    linear-gradient(180deg, rgba(255,255,255,.28), transparent 35%),
+    linear-gradient(180deg, var(--gold2), var(--gold));
+
+  color: #1b120a;
+  font-weight: 800;
+  letter-spacing: .3px;
+
+  border: 1px solid rgba(43,36,27,.55);
+  box-shadow:
+    0 10px 20px rgba(0,0,0,.25),
+    inset 0 1px 0 rgba(255,255,255,.35);
+  transition: transform .12s ease, filter .12s ease;
+}
+
+.support-btn:hover{
+  transform: translateY(-2px);
+  filter: brightness(1.05);
+}
+.support-btn:active{
+  transform: translateY(0px);
+  filter: brightness(.98);
+}
+/* =========================
+   MENU — texte plus lisible
+   ========================= */
+
+/* Sections principales */
+.nav-section > button{
+  font-size: 18px;
+}
+
+/* Sous-sections */
+.nav-section .nav-section > button{
+  font-size: 16px;
+}
+
+/* Liens */
+.nav-link{
+  font-size: 16px;
+}
+
+.nav-section .nav-link{
+  font-size: 15px;
+}
+/* Tableau Ouest World */
+.ow-table{
+  width:100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+  font-size: 0.98em;
+}
+.ow-table th, .ow-table td{
+  border: 1px solid rgba(43,36,27,.35);
+  padding: 10px;
+  vertical-align: top;
+}
+.ow-table thead th{
+  background: rgba(201,162,77,.15);
+}
+.ow-table tbody tr:hover{
+  background: rgba(0,0,0,.03);
+}
